@@ -5,3 +5,8 @@ Please login the system by using the username and password inside "user.json". Y
 
 ## Web server
 This website contains server-side language. Please run this website with web server. 
+
+## MySQL server
+MySQL server is needed for this website. Please input your server name, username and password inside src/component/database.php to connect your database.
+
+Also, you need to run the "CreateDatabase.sql" file in your database to get and update the user content.
