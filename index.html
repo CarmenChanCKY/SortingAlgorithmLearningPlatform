@@ -1,0 +1,106 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="src/css/index.css" />
+    <title>Sorting Algorithm Website</title>
+    <script type="text/javascript">
+        history.pushState(null, null, location.href);
+        window.onpopstate = function () {
+            history.go(1);
+        };
+
+
+        var userInfo;
+
+        // get data from user.json
+        function getLoginDatabase() {
+            var xmlhttp;
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    userInfo = JSON.parse(this.responseText);
+                }
+            };
+
+            xmlhttp.open("GET", "./user.json", true);
+            xmlhttp.send();
+        }
+
+        // validation
+        function checkValid(loginform) {
+            for (var i = 0; i < userInfo.user.length; i++) {
+                if (loginform.username.value == "" || loginform.password.value == "") {
+                    document.getElementById("login_status").innerHTML = "Please input your username and password.";
+                    return false;
+                } else if (userInfo.user[i].username == loginform.username.value && userInfo.user[i].password == loginform.password.value) {
+                    return true;
+                } else if (userInfo.user[i].username == loginform.username.value && userInfo.user[i].password != loginform.password.value) {
+                    document.getElementById("login_status").innerHTML = "Your password is incorrect. Please try again.";
+                    return false;
+                }
+            }
+
+            document.getElementById("login_status").innerHTML = "No this user. Please register an account or type your username again.";
+
+        }
+
+        function clearLoginForm() {
+            document.getElementById("login_status").innerHTML = "";
+        }
+
+        function openRegisterPage() {
+            window.open("src/register/registerPage.html", "_self");
+        }
+
+        window.addEventListener("load", getLoginDatabase, false);
+    </script>
+</head>
+
+<body>
+
+    <!--Header-->
+    <div id="main">
+        <p>
+            <center>
+                <p id="title">Sorting Algorithm Website</p>
+            </center>
+        </p>
+
+        <!--Login-->
+        <form name="loginform" action="src/indexLoginHandling.php" method="post" onreset="clearLoginForm()">
+            <div id="login_form">
+                <center>
+                    <p>
+                        <label for="username">Username:</label>
+                        <input type="text" name="username" />
+                    </p>
+                    <p>
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" />
+                    </p>
+                </center>
+            </div>
+
+            <div id="login_button1">
+                <center>
+                    <table width="20%">
+                        <tr align="center">
+                            <td><input type="submit" value="Login" onClick="return checkValid(this.form)" /></td>
+                            <td><input type="reset" value="Reset" /></td>
+                        </tr>
+                    </table>
+                </center>
+            </div>
+            <div id="login_button2">
+                <center>
+                    <input type="button" value="Register" onclick="openRegisterPage()" />
+                </center>
+            </div>
+        </form>
+
+        <div id="login_status" class="text"></div>
+    </div>
+
+</body>
+
+</html>

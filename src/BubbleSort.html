@@ -1,0 +1,227 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>Bubble Sort</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>$(document).ready(function () {
+            $(".navBar").load("component/navBar.html", function () {
+                $("#bubbleSortActive").addClass("active");
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="navBar"></div>
+
+    <a id="BubbleSort"></a>
+    <div id="main" class="text">
+        <center>
+            <p id="title">Bubble Sort</p>
+            <iframe width="60%" height="50%" src="https://www.youtube.com/embed/nmhjrI-aW5o"></iframe>
+        </center>
+
+        <p id="heading">Content</p>
+        <div class="withBorder contentList">
+            <ul>
+                <li><a href="#Method">Method</a></li>
+                <li><a href="#Algorithm">Algorithm</a></li>
+                <li><a href="#Complexity">Time Complexity</a></li>
+                <li><a href="#Example">Example</a></li>
+            </ul>
+        </div>
+
+        <a id="Method"></a>
+        <p id="heading">Method</p>
+        <div class="withBorder">
+            <p>Ascending Order:
+                <ol>
+                    <li>Prepare a list of unsorted elements A[0...n-1], while n is the number of elements</li>
+                    <li>Start from A[i] where i = 0, compare A[i] to A[i+1]</li>
+                    <li>If A[i] is larger than A[i+1], swap the position of A[i] and A[i+1]</li>
+                    <li>Move to the next element A[i+1] and repeat step 3 until A[i] is smaller than A[i+1]</li>
+                    <li>Repeat step 2-4 where i = 1 to n-2</li>
+                    <li>If the list is still unsorted, repeat step 2-5 and start from i = 0 again. Stop it until the
+                        list is sorted
+                    </li>
+                </ol>
+            </p>
+            <p>Descending Order:
+                <ol>
+                    <li>Prepare a list of unsorted elements A[0...n-1], while n is the number of elements</li>
+                    <li>Start from A[i] where i = 0, compare A[i] to A[i+1]</li>
+                    <li>If A[i] is smaller than A[i+1], swap the position of A[i] and A[i+1]</li>
+                    <li>Move to the next element A[i+1] and repeat step 3 until A[i] is larger than A[i+1]</li>
+                    <li>Repeat step 2-4 where i = 1 to n-2</li>
+                    <li>If the list is still unsorted, repeat step 2-5 and start from i = 0 again. Stop it until the
+                        list is sorted
+                    </li>
+                </ol>
+            </p>
+        </div>
+
+        <a id="Algorithm"></a>
+        <p id="heading">Algorithm</p>
+        <div class="withBorder">
+            <p>Ascending Order:
+                <pre>
+                    for (int i = arr.length - 1; i > 0; i--) {
+                        for (int j = 0; j &lt; i; j++) {
+                            if (arr[j] >= arr[j + 1]) {
+                                int temp = arr[j];
+                                arr[j] = arr[j + 1];
+                                arr[j + 1] = temp;
+                            }
+                        }
+                    }
+                </pre>
+            </p>
+            <p>Descending Order:
+                <pre>
+                    for (int i = arr.length - 1; i > 0; i--) {
+                        for (int j = 0; j &lt; i; j++) {
+                            if (arr[j] &lt;= arr[j + 1]) {
+                                int temp = arr[j];
+                                arr[j] = arr[j + 1];
+                                arr[j + 1] = temp;
+                            }
+                        }
+                    }
+                </pre>
+            </p>
+            <hr>
+            <p>Early-termination & ascending order:
+                <pre>
+                    boolean swap = false;
+                    for (int i = arr.length - 1; i > 0; i--) {
+                        swap = false;
+                        for (int j = 0; j &lt; i; j++) {
+                            if (arr[j] >= arr[j + 1]) {
+                                swap = true;
+                                int temp = arr[j];
+                                arr[j] = arr[j + 1];
+                                arr[j + 1] = temp;
+                            }
+                        }
+                        if (!swap) {
+                            break;
+                        }
+                    }
+                </pre>
+            </p>
+            <p>Early-termination & descending order:
+                <pre>
+                    boolean swap = false;
+                    for (int i = arr.length - 1; i > 0; i--) {
+                        swap = false;
+                        for (int j = 0; j &lt; i; j++) {
+                            if (arr[j] &lt;= arr[j + 1]) {
+                                swap = true;
+                                int temp = arr[j];
+                                arr[j] = arr[j + 1];
+                                arr[j + 1] = temp;
+                            }
+                        }
+                        if (!swap) {
+                            break;
+                        }
+                    }
+                </pre>
+            </p>
+        </div>
+
+        <a id="Complexity"></a>
+        <p id="heading">Time complexity</p>
+        <div class="withBorder">
+            <center>
+                <table class="tableFormat">
+                    <tr class="tableFormat">
+                        <td class="tableFormat">Best Case</td>
+                        <td class="tableFormat">Average Case</td>
+                        <td class="tableFormat">Worst Case</td>
+                    </tr>
+                    <tr class="tableFormat">
+                        <td class="tableFormat">&#937(n)</td>
+                        <td class="tableFormat">&#920(n<sup>2</sup>)</td>
+                        <td class="tableFormat">&#927(n<sup>2</sup>)</td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+
+        <a id="Example"></a>
+        <p id="heading">Example</p>
+        <div class="withBorder">
+            <p>
+                For ascending order:<br /> There are a list of unsorted elements A[0...4]
+                <img src="../pic/../pic/BubbleSort/BubbleSort1.png" id="sorting"></img>
+                <ol>
+                    <li>Start from A[0], compare A[0] to A[1]</li>
+                    <img src="../pic/BubbleSort/BubbleSort2.png" id="sorting"></img>
+                    Because A[0] is smaller than A[1], so we do nothing in this case
+                    <li>Compare A[1] to A[2]</li>
+                    <img src="../pic/BubbleSort/BubbleSort3.png" id="sorting"></img>
+                    In this time, A[1] is larger than A[2]. So we swap the position of A[1] and A[2]<br>
+                    <li> After swaping, A[2] is smaller than A[3]. So we do nothing in this case</li>
+                    <img src="../pic/BubbleSort/BubbleSort4.png" id="sorting"></img>
+                    <li>Compare A[3] to A[4]</li>
+                    <img src="../pic/BubbleSort/BubbleSort5.png" id="sorting"></img>
+                    A[3] is larger than A[4]. So we swap the position of A[3] and A[4]
+                    <li>The list is still unsorted. So we compare A[0] to A[1] again</li>
+                    <img src="../pic/BubbleSort/BubbleSort6.png" id="sorting"></img>
+                    <li>A[0] is larger than A[1]. So we swap the position of A[0] and A[2]</li>
+                    <img src="../pic/BubbleSort/BubbleSort7.png" id="sorting"></img>
+                    <li>After checking the whole list, this list has been sorted in ascending order</li>
+                    <img src="../pic/BubbleSort/BubbleSort8.png" id="sorting"></img>
+                </ol>
+            </p>
+            <hr>
+            <p>
+                For descending order:<br /> There are a list of unsorted elements A[0...4]
+                <img src="../pic/BubbleSort/BubbleSortDesc1.png" id="sorting"></img>
+                <ol>
+                    <li>Start from A[0], compare A[0] to A[1]</li>
+                    <img src="../pic/BubbleSort/BubbleSortDesc2.png" id="sorting"></img>
+                    Because A[0] is smaller than A[1], so we swap the position of A[0] and A[1].
+                    <li>After swaping, A[1] is still smaller than A[2].</li>
+                    <img src="../pic/BubbleSort/BubbleSortDesc3.png" id="sorting"></img>
+                    So we also swap the position of A[1] and A[2].
+                    <li> Compare A[2] to A[3]</li>
+                    <img src="../pic/BubbleSort/BubbleSortDesc4.png" id="sorting"></img>
+                    A[2] is larger than A[3]. So we still do nothing in this case
+                    <li>Compare A[3] to A[4]</li>
+                    <img src="../pic/BubbleSort/BubbleSortDesc5.png" id="sorting"></img>
+                    A[3] is smaller than A[4]. So we swap the position of A[3] and A[4]
+                    <li>The list is still unsorted.</li>
+                    <img src="../pic/BubbleSort/BubbleSortDesc6.png" id="sorting"></img>
+                    <li> So we compare A[0] to A[1] again</li>
+                    <img src="../pic/BubbleSort/BubbleSortDesc7.png" id="sorting"></img>
+                    A[0] is smaller than A[1]. So we swap the position of A[0] and A[1]
+                    <li>Compare A[1] to A[2]</li>
+                    <img src="../pic/BubbleSort/BubbleSortDesc8.png" id="sorting"></img>
+                    A[1] is larger than A[2]. So we do nothing in this case
+                    <li>Compare A[2] to A[3]</li>
+                    <img src="../pic/BubbleSort/BubbleSortDesc9.png" id="sorting"></img>
+                    A[2] is smaller than A[3]. So we swap the position of A[2] and A[3]
+                    <li>Compare A[3] to A[4]</li>
+                    <img src="../pic/BubbleSort/BubbleSortDesc10.png" id="sorting"></img>
+                    A[3] is larger than A[4]. So we do nothing in this case
+                    <li>The list is still unsorted.</li>
+                    <img src="../pic/BubbleSort/BubbleSortDesc11.png" id="sorting"></img>
+                    <li> So we compare A[0] to A[1] again</li>
+                    <img src="../pic/BubbleSort/BubbleSortDesc12.png" id="sorting"></img>
+                    A[0] is larger than A[1]. So we do nothing in this case
+                    <li>Compare A[1] to A[2]</li>
+                    <img src="../pic/BubbleSort/BubbleSortDesc13.png" id="sorting"></img>
+                    A[1] is smaller than A[2]. So we swap the position of A[1] and A[2]
+                    <li>After checking the whole list, this list has been sorted in descending order</li>
+                    <img src="../pic/BubbleSort/BubbleSortDesc14.png" id="sorting"></img>
+                </ol>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

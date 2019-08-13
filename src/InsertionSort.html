@@ -1,0 +1,173 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>Insertion Sort</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>$(document).ready(function () {
+            $(".navBar").load("component/navBar.html", function () {
+                $("#insertionSortActive").addClass("active");
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="navBar"></div>
+
+    <a id="InsertionSort"></a>
+    <div id="main" class="text">
+        <center>
+            <p id="title">Insertion Sort</p>
+            <iframe width="60%" height="50%" src="https://www.youtube.com/embed/OGzPmgsI-pQ"></iframe>
+        </center>
+
+        <p id="heading">Content</p>
+        <div class="withBorder contentList">
+            <ul>
+                <li><a href="#Method">Method</a></li>
+                <li><a href="#Algorithm">Algorithm</a></li>
+                <li><a href="#Complexity">Time Complexity</a></li>
+                <li><a href="#Example">Example</a></li>
+            </ul>
+        </div>
+
+        <a id="Method"></a>
+        <p id="heading">Method</p>
+        <div class="withBorder">
+            <p>Ascending Order:
+                <ol>
+                    <li>Prepare a list of unsorted elements A[0...n-1], while n is the number of elements</li>
+                    <li>Start from A[1], let x = A[1] and compare x to A[i-1, i-2,...,0]</li>
+                    <li>Repeat the comparison until x is larger than the comparing element y</li>
+                    <li>Move the element A[y+1...i-1] to A[y+2...i]</li>
+                    <li>Replace A[y+1] by x</li>
+                    <li>Repeat step 2-5 and start from A[2...n-1]</li>
+                </ol>
+            </p>
+            <p>Descending Order:
+                <ol>
+                    <li>Prepare a list of unsorted elements A[0...n-1], while n is the number of elements</li>
+                    <li>Start from A[1], let x = A[1] and compare x to A[i-1, i-2,...,0]</li>
+                    <li>Repeat the comparison until x is smaller than the comparing element y</li>
+                    <li>Move the element A[y+1...i-1] to A[y+2...i]</li>
+                    <li>Replace A[y+1] by x</li>
+                    <li>Repeat step 2-5 and start from A[2...n-1]</li>
+                </ol>
+            </p>
+        </div>
+
+        <a id="Algorithm"></a>
+        <p id="heading">Algorithm</p>
+        <div class="withBorder">
+            <p>Ascending Order:
+                <pre>
+                    for (int i = 1; i &lt; arr.length; i++) {
+                        store = arr[i];
+                        int count = i;
+                        for (int j = i - 1; j >= 0; j--) {
+                            if (store &lt;= arr[j]) {
+                                arr[j + 1] = arr[j];
+                                count = j;
+                            } else {
+                                break;
+                            }
+                        }
+                        arr[count] = store;
+                    }
+                </pre>
+            </p>
+            <p>Descending Order:
+                <pre>
+                    for (int i = 1; i &lt; arr.length; i++) {
+                        int store = arr[i];
+                        int count = i;
+                        for (int j = i - 1; j >= 0; j--) {
+                            if (store >= arr[j]) {
+                                arr[j + 1] = arr[j];
+                                count = j;
+                            } else {
+                                break;
+                            }
+                        }
+                        arr[count] = store;
+                    }
+                </pre>
+            </p>
+        </div>
+
+        <a id="Complexity"></a>
+        <p id="heading">Time complexity</p>
+        <div class="withBorder">
+            <center>
+                <table class="tableFormat">
+                    <tr class="tableFormat">
+                        <td class="tableFormat">Best Case</td>
+                        <td class="tableFormat">Average Case</td>
+                        <td class="tableFormat">Worst Case</td>
+                    </tr>
+                    <tr class="tableFormat">
+                        <td class="tableFormat">&#937(n)</td>
+                        <td class="tableFormat">&#920(n<sup>2</sup>)</td>
+                        <td class="tableFormat">&#927(n<sup>2</sup>)</td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+
+        <a id="Example"></a>
+        <p id="heading">Example</p>
+        <div class="withBorder">
+            <p>
+                For ascending order:<br /> There are a list of unsorted elements A[0...4]
+                <img src="InsertionSort/InsertionSort1.png" id="sorting"></img>
+                <ol>
+                    <li>Start from A[1], let x = A[1] and compare A[1] to A[0]</li>
+                    <img src="InsertionSort/InsertionSort2.png" id="sorting"></img>
+                    Because A[1] is larger than A[0], so we do nothing in this case.
+                    <li>Let x = A[2], compare A[2] to A[1] and A[0]</li>
+                    <img src="InsertionSort/InsertionSort3.png" id="sorting"></img>
+                    In this time, A[2] is smaller than both A[1] and A[0]. So shift the position of A[0] to A[1] and the
+                    position of A[1] to A[2].<br> Also, insert x to the position A[0].
+                    <li>Let x = A[3], compare A[3] to A[2], A[1] and A[0]</li>
+                    <img src="InsertionSort/InsertionSort4.png" id="sorting"></img>
+                    A[3] is smaller than both A[2] and A[1], but it is larger than A[0]. So shift the position of A[1]
+                    to A[2] and the position of A[2] to A[3].<br> Also, insert x to the position A[1].
+                    <li>Let x = A[4], compare A[4] to A[3], A[2], A[1] and A[0]</li>
+                    <img src="InsertionSort/InsertionSort5.png" id="sorting"></img>
+                    A[4] is smaller than A[3] only. So shift the position of A[3] to A[4] and insert x to the position
+                    A[3].
+                    <li>The list is sorted in ascending order</li>
+                    <img src="InsertionSort/InsertionSort6.png" id="sorting"></img>
+                </ol>
+            </p>
+            <hr>
+            <p>
+                For descending order:<br /> There are a list of unsorted elements A[0...4]
+                <img src="InsertionSort/InsertionSortDesc1.png" id="sorting"></img>
+                <ol>
+                    <li>Start from A[1], let x = A[1] and compare A[1] to A[0]</li>
+                    <img src="InsertionSort/InsertionSortDesc2.png" id="sorting"></img>
+                    Because A[1] is smaller than A[0], so we do nothing in this case.
+                    <li>Let x = A[2], compare A[2] to A[1] and A[0]</li>
+                    <img src="InsertionSort/InsertionSortDesc3.png" id="sorting"></img>
+                    In this time, A[2] is larger than both A[1] and A[0]. So shift the position of A[0] to A[1] and the
+                    position of A[1] to A[2].<br> Also, insert x to the position A[0].
+                    <li>Let x = A[3], compare A[3] to A[2], A[1] and A[0]</li>
+                    <img src="InsertionSort/InsertionSortDesc4.png" id="sorting"></img>
+                    A[3] is larger than A[2], but it is smaller than A[1] and A[0]. So shift the position of A[2] to
+                    A[3].<br> Also, insert x to the position A[2].
+                    <li>Let x = A[4], compare A[4] to A[3], A[2], A[1] and A[0]</li>
+                    <img src="InsertionSort/InsertionSortDesc5.png" id="sorting"></img>
+                    A[4] is larger than A[3], A[2] and A[1]. So shift the position of A[3] to A[4], A[2] to A[3] and
+                    A[1] to A[2]. Insert x to the position A[1].
+                    <li>The list is sorted in descending order</li>
+                    <img src="InsertionSort/InsertionSortDesc6.png" id="sorting"></img>
+                </ol>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,302 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
+    <title>Exercise</title>
+    <script type="text/javascript" src="./InsertionSortExHandling.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>$(document).ready(function () {
+            $(".navBar").load("../component/navBarForExercise.html", function () {
+                $("#insertionSortExActive").addClass("active");
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="navBar"></div>
+
+    <a id="InsertionEx"></a>
+    <div id="main" class="text">
+        <center>
+            <p id="title">Insertion Sort Exercise</p>
+        </center>
+
+        <p id="heading">Content</p>
+        <div class="withBorder contentList">
+            <ul>
+                <li><a href="#Level1">Level 1</a></li>
+                <li><a href="#Level2">Level 2</a></li>
+                <li><a href="#Level3">Level 3</a></li>
+            </ul>
+        </div>
+
+        <!--level 1-->
+        <a id="Level 1"></a>
+        <p id="heading">Level 1</p>
+        <div class="withBorder">
+            <form name="insertionSortL1" id="insertionSortL1" onreset="clearFormInsertionSortL1()">
+                <!--question 1-->
+                <p>
+                    Q1. How many times of looping is needed to sort number 4 3 8 2 1 in ascending order by insertion
+                    sort?<br>
+                    <input type="radio" name="InsertionL1Q1" id="InsertionL1Q1" value="1">A. 4 times<br>
+                    <input type="radio" name="InsertionL1Q1" id="InsertionL1Q1" value="2">B. 5 times<br>
+                    <input type="radio" name="InsertionL1Q1" id="InsertionL1Q1" value="3">C. 6 times<br>
+                    <input type="radio" name="InsertionL1Q1" id="InsertionL1Q1" value="4">D. 7 times<br>
+                    <input type="text" name="InsertionL1Q1Ans" id="InsertionL1Q1Ans" readonly>
+                </p>
+                <div id="answerExplanationL1Q1" class="explanation text">
+                    <p>
+                        Explanation: <br> element= 4|3 8 2 1<br> After 1<sup>st</sup> loop: 3 4|8 2 1<br> After
+                        2<sup>nd</sup> loop: 3 4 8|2 1<br> After 3<sup>rd</sup> loop: 2 3 4 8|1<br> After 4<sup>th</sup>
+                        loop:: 1 2 3 4 8<br> The number has been sorted.
+                    </p>
+                </div>
+                <!--question 2-->
+                <p>
+                    Q2. How many times of looping is needed to sort number 6 1 2 9 4 7 in descending order by insertion
+                    sort?<br>
+                    <input type="radio" name="InsertionL1Q2" id="InsertionL1Q2" value="1">A. 3 times<br>
+                    <input type="radio" name="InsertionL1Q2" id="InsertionL1Q2" value="2">B. 4 times<br>
+                    <input type="radio" name="InsertionL1Q2" id="InsertionL1Q2" value="3">C. 5 times<br>
+                    <input type="radio" name="InsertionL1Q2" id="InsertionL1Q2" value="4">D. 6 times<br>
+                    <input type="text" name="InsertionL1Q2Ans" id="InsertionL1Q2Ans" readonly>
+                </p>
+                <div id="answerExplanationL1Q2" class="explanation text">
+                    <p>
+                        Explanation: <br> element= 6|1 2 9 4 7<br> After 1<sup>st</sup> loop: 1 6|2 9 4 7<br> After
+                        2<sup>nd</sup> loop: 1 2 6|9 4 7<br> After 3<sup>rd</sup> loop: 1 2 6 9|4 7<br> After
+                        4<sup>th</sup> loop: 1 2 4 6 9|7<br> After 5<sup>th</sup> loop: 1 2 4 6 7 9<br> The number has
+                        been sorted.
+                    </p>
+                </div>
+                <!--question 3-->
+                <p>
+                    Q3. Which answer(s) about Insertion Sort is correct?<br>
+                    <input type="checkbox" name="InsertionL1Q3" id="InsertionL1Q31" value="1">A. Comparison will start
+                    at the second element<br>
+                    <input type="checkbox" name="InsertionL1Q3" id="InsertionL1Q32" value="2">B. All the number can be
+                    sorted within 5 times of looping<br>
+                    <input type="checkbox" name="InsertionL1Q3" id="InsertionL1Q33" value="3">C. The starting position
+                    is i-1<sup>th</sup> element when sort in descending order<br>
+                    <input type="checkbox" name="InsertionL1Q3" id="InsertionL1Q34" value="4">D. Nested-loop is needed
+                    for insertion sort<br>
+                    <input type="text" name="InsertionL1Q3Ans" id="InsertionL1Q3Ans" readonly>
+                </p>
+                <div id="answerExplanationL1Q3" class="explanation text">
+                    <p>Explanation: <br> For answer B, number of loops is depends on element size.<br> For example,
+                        consider element 6|1 2 9 4 7 3<br> After 1<sup>st</sup> loop: 1 6|2 9 4 7 3<br> After
+                        2<sup>nd</sup> loop: 1 2 6|9 4 7 3<br> After 3<sup>rd</sup> loop: 1 2 6 9|4 7 3
+                        <br> After 4<sup>th</sup> loop: 1 2 4 6 9|7 3<br> After 5<sup>th</sup> loop: 1 2 4 6 7 9|3<br>
+                        After 6<sup>th</sup> loop: 1 2 3 4 6 7 9<br> In this case, 6 looping is need to sort this
+                        element. So answer B is incorrect.
+                    </p>
+                </div>
+                <!--question 4-->
+                <p>
+                    Q4. What is the worst-case time complexity of Insertion sort?<br>
+                    <input type="radio" name="InsertionL1Q4" id="InsertionL1Q4" value="1">A. &#927(2<sup>n</sup>)<br>
+                    <input type="radio" name="InsertionL1Q4" id="InsertionL1Q4" value="2">B. &#927(n log n)<br>
+                    <input type="radio" name="InsertionL1Q4" id="InsertionL1Q4" value="3">C. &#927(n)<br>
+                    <input type="radio" name="InsertionL1Q4" id="InsertionL1Q4" value="4">D. &#927(n<sup>2</sup>)<br>
+                    <input type="text" name="InsertionL1Q4Ans" id="InsertionL1Q4Ans" readonly>
+                </p>
+                <!--question 5-->
+                <p>
+                    Q5. Which one is the answer of sorting array A={2, 9, 0, 1, 7} in descending order after
+                    3<sup>th</sup> looping? <br>
+                    <input type="radio" name="InsertionL1Q5" id="InsertionL1Q5" value="1">A. 9 2 0 1 7<br>
+                    <input type="radio" name="InsertionL1Q5" id="InsertionL1Q5" value="2">B. 2 9 1 7 0<br>
+                    <input type="radio" name="InsertionL1Q5" id="InsertionL1Q5" value="3">C. 9 7 2 0 1<br>
+                    <input type="radio" name="InsertionL1Q5" id="InsertionL1Q5" value="4">D. 9 2 1 0 7<br>
+                    <input type="text" name="InsertionL1Q5Ans" id="InsertionL1Q5Ans" readonly>
+                </p>
+                <div id="answerExplanationL1Q5" class="explanation text">
+                    <p>
+                        Explanation: <br> element= 2|9 0 1 7<br> After 1<sup>st</sup> loop: 9 2|0 1 7<br> After
+                        2<sup>nd</sup> loop: 9 2 0|1 7<br> After 3<sup>rd</sup> loop: 9 2 1 0|7<br> After 4<sup>th</sup>
+                        loop: 9 7 2 1 0<br> The number has been sorted.
+                    </p>
+                </div>
+                <p>
+                    <input type="button" name="submit" value="Submit" onclick="InsertionSortCheckL1()">
+                    <input type="reset" name="reset" value="Reset">
+                </p>
+                <p>
+                    <input type="text" name="InsertionL1ShowScore" readonly>
+                </p>
+            </form>
+        </div>
+
+        <!--level 2-->
+        <a id="Level2"></a>
+        <p id="heading">Level 2</p>
+        <div class="withBorder">
+            <form name="insertionSortL2" id="insertionSortL2" onreset="clearFormInsertionSortL2()">
+                <!--question 1-->
+                <p>
+                    Q1. Consider an array of elements arr[5]= {5,4,3,2,1} , what are the steps of insertions done while
+                    doing insertion sort in the array. <br>
+                    <input type="radio" name="InsertionL2Q1" id="InsertionL2Q1" value="1">A. 5 4 3 1 2, 5 4 1 2 3, 5 1 2
+                    3 4, 1 2 3 4 5 <br>
+                    <input type="radio" name="InsertionL2Q1" id="InsertionL2Q1" value="2">B. 4 5 3 2 1, 3 4 5 2 1, 2 3 4
+                    5 1, 1 2 3 4 5 <br>
+                    <input type="radio" name="InsertionL2Q1" id="InsertionL2Q1" value="3">C. 4 5 3 2 1, 2 3 4 5 1, 3 4 5
+                    2 1, 1 2 3 4 5 <br>
+                    <input type="radio" name="InsertionL2Q1" id="InsertionL2Q1" value="4">D. 4 3 2 1 5, 3 2 1 5 4, 2 1 5
+                    4 3, 1 5 4 3 2 <br>
+                    <input type="text" name="InsertionL2Q1Ans" id="InsertionL2Q1Ans" readonly>
+                </p>
+                <p class="reference">Reference: https://www.geeksforgeeks.org/quiz-insertionsort-gq/</p>
+                <div id="answerExplanationL2Q1" class="explanation text">
+                    <p>
+                        Explanation: <br> element= 5|4 3 2 1<br> After 1<sup>st</sup> loop: 4 5|3 2 1<br> After
+                        2<sup>nd</sup> loop: 3 4 5|2 1<br> After 3<sup>rd</sup> loop: 2 3 4 5|1<br> After 4<sup>th</sup>
+                        loop:: 1 2 3 4 5<br> The number has been sorted.
+                    </p>
+                </div>
+                <!--question 2-->
+                <p>
+                    Q2. Consider the following lists of partially sorted numbers. The double bars represent the sort
+                    marker. How many comparisons and swaps are needed to sort the next number. [1 3 4 8 9 || 5 2] <br>
+                    <input type="radio" name="InsertionL2Q2" id="InsertionL2Q2" value="1">A. 4 comparisons, 3 swaps<br>
+                    <input type="radio" name="InsertionL2Q2" id="InsertionL2Q2" value="2">B. 2 comparisons, 2 swaps<br>
+                    <input type="radio" name="InsertionL2Q2" id="InsertionL2Q2" value="3">C. 5 comparisons, 4 swaps<br>
+                    <input type="radio" name="InsertionL2Q2" id="InsertionL2Q2" value="4">D. 3 comparisons, 2 swaps<br>
+                    <input type="text" name="InsertionL2Q2Ans" id="InsertionL2Q2Ans" readonly>
+                </p>
+                <p class="reference">Reference:
+                    https://www.proprofs.com/quiz-school/quizshow.php?title=insertion-sort-quiz&q=2</p>
+                <div id="answerExplanationL2Q2" class="explanation text">
+                    <p>
+                        Explanation: <br> element= 1 3 4 8 9|5 2<br> After 1<sup>st</sup> comparison: 1 3 4 8 5|9 2<br>
+                        After 2<sup>nd</sup> comparison: 1 3 4 5 8|9 2<br> After 3<sup>rd</sup> comparison: 1 3 4 5 8|9
+                        2
+                        <br>So, 3 comparisons and 2 swaps are needed.
+                    </p>
+                </div>
+                <!--question 3-->
+                <p>
+                    Q3. Insertion sort is an example of an incremental algorithm.<br>
+                    <input type="radio" name="InsertionL2Q3" id="InsertionL2Q3" value="1">True<br>
+                    <input type="radio" name="InsertionL2Q3" id="InsertionL2Q3" value="2">False<br>
+                    <input type="text" name="InsertionL2Q3Ans" id="InsertionL2Q3Ans" readonly>
+                </p>
+                <p class="reference">Reference: https://www.sanfoundry.com/insertion-sort-interview-questions-answers/
+                </p>
+                <div id="answerExplanationL2Q3" class="explanation text">
+                    <p>Explanation: <br> Explanation: In the incremental algorithms, the complicated structure on n
+                        items is built by first building it on n - 1 items. And then we make the necessary changes to
+                        fix things in adding the last item. Insertion
+                        sort builds the sorted sequence one element at a time. Therefore, it is an example of an
+                        incremental algorithm.
+                    </p>
+                </div>
+                <p>
+                    <input type="button" name="submit" value="Submit" onclick="InsertionSortCheckL2()">
+                    <input type="reset" name="reset" value="Reset">
+                </p>
+                <p>
+                    <input type="text" name="InsertionL2ShowScore" readonly>
+                </p>
+            </form>
+
+        </div>
+
+        <!--level 3-->
+        <a id="Level3"></a>
+        <p id="heading">Level 3</p>
+        <div class="withBorder">
+            <form name="insertionSortL3" id="insertionSortL3" onreset="clearFormInsertionSortL3()">
+                <!--question 1-->
+                <p>
+                    Q1. Insertion sort is stable, online (can sort a list at runtime) but not suited well for large
+                    number of elements. <br>
+                    <input type="radio" name="InsertionL3Q1" id="InsertionL3Q1" value="1">True <br>
+                    <input type="radio" name="InsertionL3Q1" id="InsertionL3Q1" value="2">False <br>
+                    <input type="text" name="InsertionL3Q1Ans" id="InsertionL3Q1Ans" readonly>
+                </p>
+                <p class="reference">Reference: https://www.geeksforgeeks.org/quiz-insertionsort-gq/</p>
+                <div id="answerExplanationL3Q1" class="explanation text">
+                    <p>
+                        Explanation: <br> Time taken by algorithm is good for small number of elements, but increases
+                        quadratically for large number of elements.
+                    </p>
+                </div>
+                <!--question 2-->
+                <p>
+                    Q2. Consider the array A[]= {6,4,8,1,3} apply the insertion sort to sort the array . Consider the
+                    cost associated with each sort is 25 rupees , what is the total cost of the insertion sort when
+                    element 1 reaches the first position of the array?<br> Answer: <input type="text"
+                        name="InsertionL3Q2" id="InsertionL3Q2">
+                    <br>
+                    <br>
+                    <input type="text" name="InsertionL3Q2Ans" id="InsertionL3Q2Ans" readonly>
+                </p>
+                <p class="reference">Reference: https://www.geeksforgeeks.org/quiz-insertionsort-gq/</p>
+                <div id="answerExplanationL3Q2" class="explanation text">
+                    <p>
+                        Explanation: <br> element= 6|4 8 1 3<br> After 1<sup>st</sup> loop: 4 6|8 1 3<br> After
+                        2<sup>nd</sup> loop: 4 6 8|1 3<br> After 3<sup>rd</sup> loop: 1 4 6 8|3<br> After 4<sup>th</sup>
+                        loop: 1 3 4 6 8<br> Two comparisons are only
+                        required for the element 1 reaches the first position of the array.
+                    </p>
+                </div>
+                <!--question 3-->
+                <p>
+                    Q3. Consider the code given below, which runs insertion sort:<br>
+                    <pre>
+                            void insertionSort(int arr[], int array_size)
+                            {
+                              int i, j, value;
+                              for (i = 1; i &lt; array_size; i++)
+                              {
+                                      value = arr[i];
+                                      j = i;
+                                      while (________ )
+                                      {
+                                               arr[j] = arr[j - 1];
+                                               j = j - 1;
+                                      }
+                                      arr[j] = value;
+                              }
+                            }
+                    </pre>
+                    <br>Which condition will correctly implement the while loop?<br>
+                    <input type="radio" name="InsertionL3Q3" id="InsertionL3Q3" value="1">A. (j > 0) && (arr[j + 1] >
+                    value)<br>
+                    <input type="radio" name="InsertionL3Q3" id="InsertionL3Q3" value="2">B. (j > 0) && (arr[j - 1] >
+                    value)<br>
+                    <input type="radio" name="InsertionL3Q3" id="InsertionL3Q3" value="3">C. (j > 0) && (arr[j + 1] &lt;
+                    value)<br>
+                    <input type="radio" name="InsertionL3Q3" id="InsertionL3Q3" value="4">D. (j > 0) || (arr[j - 1] >
+                    value)<br>
+                    <input type="text" name="InsertionL3Q3Ans" id="InsertionL3Q3Ans" readonly>
+                </p>
+                <p class="reference">Reference: https://www.sanfoundry.com/insertion-sort-interview-questions-answers/
+                </p>
+                <div id="answerExplanationL3Q3" class="explanation text">
+                    <p>Explanation: <br> In insertion sort, the element is A[j] is inserted into the correct position in
+                        the sorted sequence A[1...j - 1]. So, condition given in (j > 0) && (arr[j - 1] > value) will
+                        implement while loop correctly.
+                    </p>
+                </div>
+                <p>
+                    <input type="button" name="submit" value="Submit" onclick="InsertionSortCheckL3()">
+                    <input type="reset" name="reset" value="Reset">
+                </p>
+                <p>
+                    <input type="text" name="InsertionL3ShowScore" readonly>
+                </p>
+            </form>
+        </div>
+
+
+
+    </div>
+</body>
+
+</html>

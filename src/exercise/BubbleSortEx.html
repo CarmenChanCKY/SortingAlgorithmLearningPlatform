@@ -1,0 +1,436 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
+    <title>Exercise</title>
+    <script type="text/javascript" src="./BubbleSortExHandling.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>$(document).ready(function () {
+            $(".navBar").load("../component/navBarForExercise.html", function () {
+                $("#bubbleSortExActive").addClass("active");
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <div class="navBar"></div>
+
+    <a id="BubbleEx"></a>
+    <div id="main" class="text">
+        <center>
+            <p id="title">Bubble Sort Exercise</p>
+        </center>
+
+        <p id="heading">Content</p>
+        <div class="withBorder contentList">
+            <ul>
+                <li><a href="#Level1">Level 1</a></li>
+                <li><a href="#Level2">Level 2</a></li>
+                <li><a href="#Level3">Level 3</a></li>
+            </ul>
+        </div>
+
+        <!--level 1-->
+        <a id="Level 1"></a>
+        <p id="heading">Level 1</p>
+        <div class="withBorder">
+            <form name="bubbleSortL1" id="bubbleSortL1" onreset="clearFormBubbleSortL1()">
+                <!--question 1-->
+                <p>
+                    Q1. In which time the early termination condition will terminate the looping when sorting number 9 1
+                    3 8 4 in ascending order by bubble sort?<br>
+                    <input type="radio" name="BubbleL1Q1" id="BubbleL1Q1" value="1">A. After 6<sup>th</sup> loop<br>
+                    <input type="radio" name="BubbleL1Q1" id="BubbleL1Q1" value="2">B. After 7<sup>th</sup> loop<br>
+                    <input type="radio" name="BubbleL1Q1" id="BubbleL1Q1" value="3">C. After 8<sup>th</sup> loop<br>
+                    <input type="radio" name="BubbleL1Q1" id="BubbleL1Q1" value="4">D. After 9<sup>th</sup> loop<br>
+                    <input type="text" name="BubbleL1Q1Ans" id="BubbleL1Q1Ans" readonly>
+                </p>
+
+                <div id="answerExplanationL1Q1" class="explanation text">
+                    <p>
+                        Explanation: <br> element= 9 1 3 8 4<br> After 1<sup>st</sup> loop: 1 9 3 8 4<br> After 2
+                        <sup>nd</sup> loop: 1 3 9 8 4<br> After 3<sup>rd</sup> loop: 1 3 8 9 4<br> After 4<sup>th</sup>
+                        loop: 1 3 8 4 9<br> The largest element have been sorted.<br> After 5<sup>th</sup> loop: 1 3 8 4
+                        9<br> After 6<sup>th</sup> loop:
+                        1 3 8 4 9
+                        <br> After 7<sup>th</sup> loop: 1 3 4 8 9<br> After 8<sup>th</sup> loop: 1 3 4 8 9<br> The whole
+                        element is sorted. Early termination condition will work after 8<sup>th</sup> loop.
+                    </p>
+                </div>
+
+                <!--question 2-->
+                <p>
+                    Q2. How many times of looping is needed to sort number 5 1 7 3 9 in descending order by bubble sort?
+                    <br>
+                    <input type="radio" name="BubbleL1Q2" id="BubbleL1Q2" value="1">A. 8 times<br>
+                    <input type="radio" name="BubbleL1Q2" id="BubbleL1Q2" value="2">B. 9 times<br>
+                    <input type="radio" name="BubbleL1Q2" id="BubbleL1Q2" value="3">C. 13 times<br>
+                    <input type="radio" name="BubbleL1Q2" id="BubbleL1Q2" value="4">D. 14 times<br>
+                    <input type="text" name="BubbleL1Q2Ans" id="BubbleL1Q2Ans" readonly>
+                </p>
+                <div id="answerExplanationL1Q2" class="explanation text">
+                    <p>
+                        Explanation: <br> element= 5 1 7 3 9<br> After 1<sup>st</sup> loop: 5 1 7 3 9<br> After 2
+                        <sup>nd</sup> loop: 5 7 1 3 9<br> After 3<sup>rd</sup> loop: 5 7 3 1 9<br> After 4<sup>th</sup>
+                        loop: 5 7 3 9 1<br> The smallest element have been sorted.<br> After 5<sup>th</sup> loop: 7 5 3
+                        9 1<br> After 6<sup>th</sup> loop:
+                        7 5 3 9 1
+                        <br> After 7<sup>th</sup> loop: 7 5 9 3 1<br> After 8<sup>th</sup> loop: 7 5 9 3 1<br> The 2
+                        <sup>nd</sup> smallest element have been sorted.
+                        <br> After 9<sup>th</sup> loop: 7 5 9 3 1<br> After 10<sup>th</sup> loop: 7 9 5 3 1<br> After 11
+                        <sup>th</sup> loop: 7 9 5 3 1<br> After 12<sup>th</sup> loop: 7 9 5 3 1<br> The 3<sup>rd</sup>
+                        smallest element have been sorted.<br> After 13<sup>th</sup> loop: 9 7 5 3 1<br>
+                        The whole element is sorted. 13 times of looping is needed.
+                    </p>
+                </div>
+
+                <!--question 3-->
+                <p>
+                    Q3. Which one is the answer of sorting array A={5, 0, 6, 9, 2} in ascending order after 7
+                    <sup>th</sup> looping? <br>
+                    <input type="radio" name="BubbleL1Q3" id="BubbleL1Q3" value="1">A. 0 5 6 9 2<br>
+                    <input type="radio" name="BubbleL1Q3" id="BubbleL1Q3" value="2">B. 0 5 2 6 9<br>
+                    <input type="radio" name="BubbleL1Q3" id="BubbleL1Q3" value="3">C. 0 2 5 6 9<br>
+                    <input type="radio" name="BubbleL1Q3" id="BubbleL1Q3" value="4">D. 0 5 6 2 9<br>
+                    <input type="text" name="BubbleL1Q3Ans" id="BubbleL1Q3Ans" readonly>
+                </p>
+                <div id="answerExplanationL1Q3" class="explanation text">
+                    <p>
+                        Explanation: <br> element= 5 0 6 9 2<br> After 1<sup>st</sup> loop: 0 5 6 9 2<br> After 2
+                        <sup>nd</sup> loop: 0 5 6 9 2<br> After 3<sup>rd</sup> loop: 0 5 6 9 2<br> After 4<sup>th</sup>
+                        loop: 0 5 6 2 9<br> The largest element have been sorted.<br> After 5<sup>th</sup> loop: 0 5 6 2
+                        9<br> After 6<sup>th</sup> loop:
+                        0 5 6 2 9
+                        <br> After 7<sup>th</sup> loop: 0 5 2 6 9<br> After 8<sup>th</sup> loop: 0 5 2 6 9<br> The 2
+                        <sup>nd</sup> largest element have been sorted.
+                        <br> After 9
+                        <sup>th</sup> loop: 0 5 2 6 9<br> After 10<sup>th</sup> loop: 0 2 5 6 9<br> After 11
+                        <sup>th</sup> loop: 0 2 5 6 9<br> After 12<sup>th</sup> loop: 0 2 5 6 9<br> The whole element is
+                        sorted. Early termination condition will work after 12<sup>th</sup> loop.
+                    </p>
+                </div>
+
+                <!--question 4-->
+                <p>
+                    Q4. What is the best-case time complexity of Insertion sort?<br>
+                    <input type="radio" name="BubbleL1Q4" id="BubbleL1Q4" value="1">A. &#927(2<sup>n</sup>)<br>
+                    <input type="radio" name="BubbleL1Q4" id="BubbleL1Q4" value="2">B. &#927(n<sup>2</sup>)<br>
+                    <input type="radio" name="BubbleL1Q4" id="BubbleL1Q4" value="3">C. &#927(n)<br>
+                    <input type="radio" name="BubbleL1Q4" id="BubbleL1Q4" value="4">D. &#927(n log n)<br>
+                    <input type="text" name="BubbleL1Q4Ans" id="BubbleL1Q4Ans" readonly>
+                </p>
+
+                <!--question 5-->
+                <p>
+                    Q5. Which answer(s) about Insertion Sort is correct?<br>
+                    <input type="checkbox" name="BubbleL1Q5" id="BubbleL1Q51" value="1">A. Early-termination will occur
+                    when there are no swapping in the whole list<br>
+                    <input type="checkbox" name="BubbleL1Q5" id="BubbleL1Q52" value="2">B. Comparison will start at the
+                    first element<br>
+                    <input type="checkbox" name="BubbleL1Q5" id="BubbleL1Q53" value="3">C. Number of loops is needed to
+                    sort a list is depends on list size<br>
+                    <input type="checkbox" name="BubbleL1Q5" id="BubbleL1Q54" value="4">D. By using bubble sort, sort in
+                    ascending order is faster than sort in descending order.<br>
+                    <input type="text" name="BubbleL1Q5Ans" id="BubbleL1Q5Ans" readonly>
+                </p>
+                <div id="answerExplanationL1Q5" class="explanation text">
+                    <p>Explanation: <br>
+                        <p>
+                            For answer B, the time needed to sort a list depends on the order of elements inside the
+                            list.
+                            <br> For example, if the elements inside a list is nearly sorted in ascending order such as
+                            1 2 3 9 5, sort in ascending order is faster than sort in descending order.<br> But, if if
+                            the elements inside a list is nearly sorted
+                            in ascending order such as 9 7 5 0 8, sort in descending order is faster than sort in
+                            ascending order.<br>
+                        </p>
+                        <p>
+                            For answer C, number of loops is needed to sort a list is not related to element size.<br>
+                            For example, to sort 9 1 3 8 4 in ascending order needs at least 8 loops.<br> Sorting 5 1 7
+                            3 9 in descending order needs at least 13
+                            loops.
+                            <br> Sorting 5 0 6 9 2 in descending order needs at least 12 loops.<br> This three examples
+                            have 5 elements in the list, but they needs different number of loops to sort them. So, C is
+                            incorrect.
+                        </p>
+                    </p>
+                </div>
+                <p>
+                    <input type="button" name="submit" value="Submit" onclick="BubbleSortL1Check()">
+                    <input type="reset" name="reset" value="Reset">
+                </p>
+                <p>
+                    <input type="text" name="BubbleL1ShowScore" readonly>
+                </p>
+            </form>
+        </div>
+
+        <!--level 2-->
+        <a id="Level2"></a>
+        <p id="heading">Level 2</p>
+        <div class="withBorder">
+            <form name="bubbleSortL2" id="bubbleSortL2" onreset="clearFormBubbleSortL2()">
+                <!--question 1-->
+                <p>
+                    Q1. What is the maximum number of comparisons if there are 5 elements in array x? <br> Answer:
+                    <input type="text" name="BubbleL2Q1" id="BubbleL2Q1">
+                    <br>
+                    <br>
+                    <input type="text" name="BubbleL2Q1Ans" id="BubbleL2Q1Ans" readonly>
+                </p>
+                <p class="reference">Reference:
+                    https://www.proprofs.com/quiz-school/quizshow.php?title=bubble-sort-quiz&q=3</p>
+                <div id="answerExplanationL2Q1" class="explanation text">
+                    <p>
+                        Explanation: <br> Assume a worse-case element 5 4 3 2 1 is being sorted.<br> After
+                        1<sup>st</sup> loop: 4 3 2 1 5 -> 4 comparison is needed
+                        <br> After 2 <sup>nd</sup> loop: 3 2 1 4 5 -> 3 comparison is needed
+                        <br> After 3<sup>rd</sup> loop: 2 1 3 4 5 -> 2 comparison is needed
+                        <br> After 4<sup>th</sup> loop: 1 2 3 4 5 -> 1 comparison is needed
+                        <br>So, total number of comparison is 4+3+2+1=9.
+                    </p>
+                </div>
+
+                <!--question 2-->
+                <p>
+                    Q2. Assume that we use Bubble Sort to sort n distinct elements in ascending order. When does the
+                    best case of Bubble Sort occur?
+                    <br>
+                    <input type="radio" name="BubbleL2Q2" id="BubbleL2Q2" value="1">A. When elements are not sorted by
+                    any order<br>
+                    <input type="radio" name="BubbleL2Q2" id="BubbleL2Q2" value="2">B. There is no best case for Bubble
+                    Sort. It always takes O(n*n) time<br>
+                    <input type="radio" name="BubbleL2Q2" id="BubbleL2Q2" value="3">C. When elements are sorted in
+                    ascending order<br>
+                    <input type="radio" name="BubbleL2Q2" id="BubbleL2Q2" value="4">D. When elements are sorted in
+                    descending order<br>
+                    <input type="text" name="BubbleL2Q2Ans" id="BubbleL2Q2Ans" readonly>
+                </p>
+                <p class="reference">Reference: https://www.geeksforgeeks.org/quiz-bubblesort-gq/</p>
+                <div id="answerExplanationL2Q2" class="explanation text">
+                    <p>
+                        Explanation: <br> The test case of Bubble Sort to sort n distinct elements in ascending order is
+                        the element has been sorted in ascending order. No any swapping is needed.
+                    </p>
+                </div>
+
+                <!--question 3-->
+                <p>
+                    Q3. Select the appropriate code that performs bubble sort.<br>
+                    <input type="radio" name="BubbleL2Q3" id="BubbleL2Q3" value="1">A.
+                    <pre>for(int j=arr.length-1; j>=0; j--)
+                                {
+                                    for(int k=0; k &lt; j; k++)
+                                    {
+                                        if(arr[k] > arr[k+1])
+                                        {
+                                            int temp = arr[k];
+                                            arr[k] = arr[k+1];
+                                            arr[k+1] = temp;
+                                        }
+                                    }
+                                }</pre>
+                    <br>
+                    <input type="radio" name="BubbleL2Q3" id="BubbleL2Q3" value="2">B.
+                    <pre>for(int j=arr.length; j>=0; j--)
+                                {
+                                    for(int k=0; k &lt;j; k++)
+                                    {
+                                        if(arr[k] > arr[k+1])
+                                        {
+                                            int temp = arr[k];
+                                            arr[k] = arr[k+1];
+                                            arr[k+1] = temp;
+                                        }
+                                    }
+                                }</pre>
+                    <br>
+                    <input type="radio" name="BubbleL2Q3" id="BubbleL2Q3" value="3">C.
+                    <pre>
+                            for(int j=arr.length-1; j>=0; j--)
+                                {
+                                    for(int k=0; k &lt; j; k++)
+                                    {
+                                        if(arr[k] &lt; arr[k+1])
+                                        {
+                                            int temp = arr[k];
+                                            arr[k] = arr[k+1];
+                                            arr[k+1] = temp;
+                                        }
+                                    }
+                                }
+                            </pre>
+                    <br>
+                    <input type="radio" name="BubbleL2Q3" id="BubbleL2Q3" value="4">D. None of the above<br>
+                    <p class="reference">Reference:
+                        https://www.sanfoundry.com/data-structure-questions-answers-bubble-sort/</p>
+                    <input type="text" name="BubbleL2Q3Ans" id="BubbleL2Q3Ans" readonly>
+                </p>
+                <div id="answerExplanationL2Q3" class="explanation text">
+                    <p>
+                        Explanation: <br>The outer loop keeps count of number of iterations, and the inner loop checks
+                        to see if swapping is necessary.
+                    </p>
+                </div>
+                <p>
+                    <input type="button" name="submit" value="Submit" onclick="BubbleSortL2Check()">
+                    <input type="reset" name="reset" value="Reset">
+                </p>
+                <p>
+                    <input type="text" name="BubbleL2ShowScore" readonly>
+                </p>
+            </form>
+        </div>
+
+        <!--level 3-->
+        <a id="Level3"></a>
+        <p id="heading">Level 3</p>
+        <div class="withBorder">
+            <form name="bubbleSortL3" id="bubbleSortL3" onreset="clearFormBubbleSortL3()">
+                <!--question 1-->
+                <p>
+                    Q1. What is the max. number of comparisons that can take place when a bubble sort is implemented?
+                    Assume there are n elements in the array?<br>
+                    <input type="radio" name="BubbleL3Q1" id="BubbleL3Q1" value="1">A. (n-1)/2<br>
+                    <input type="radio" name="BubbleL3Q1" id="BubbleL3Q1" value="2">B. n-(n-1)/2<br>
+                    <input type="radio" name="BubbleL3Q1" id="BubbleL3Q1" value="3">C. (n+1)/2<br>
+                    <input type="radio" name="BubbleL3Q1" id="BubbleL3Q1" value="4">D. n(n-1)/2<br>
+                    <input type="text" name="BubbleL3Q1Ans" id="BubbleL3Q1Ans" readonly>
+                </p>
+                <p class="reference">Reference:
+                    https://www.proprofs.com/quiz-school/quizshow.php?title=bubble-sort-quiz&q=4</p>
+                <div id="answerExplanationL3Q1" class="explanation text">
+                    <p>
+                        Explanation: <br> When number of elements = 2, maxinum number of comparison = 1
+                        <br> When number of elements = 3, maxinum number of comparison = 2 + 1 = 3
+                        <br> When number of elements = 4, maxinum number of comparison = 3 + 2 + 1 = 6
+                        <br> When number of elements = 5, maxinum number of comparison = 4 + 3 + 2 + 1 = 10
+                        <br> and so on...
+                    </p>
+                </div>
+
+                <!--question 2-->
+                <p>
+                    Q2. The number of swappings needed to sort the numbers 8, 22, 7, 9, 31, 5, 13 in ascending order,
+                    using bubble sort is
+                    <br>
+                    <br> Answer: <input type="text" name="BubbleL3Q2" id="BubbleL3Q2">
+                    <br>
+                    <br>
+                    <input type="text" name="BubbleL3Q2Ans" id="BubbleL3Q2Ans" readonly>
+                </p>
+                <p class="reference">Reference: https://www.geeksforgeeks.org/quiz-bubblesort-gq/</p>
+                <div id="answerExplanationL3Q2" class="explanation text">
+                    <p>
+                        Explanation: <br> Element = 8 22 7 9 31 5 13
+                        <br> After 1<sup>st</sup> loop: 8 7 9 22 5 13 31 -> 4 swaps is needed
+                        <br> After 2 <sup>nd</sup> loop: 7 8 9 5 13 22 31 -> 3 swaps is needed
+                        <br> After 3<sup>rd</sup> loop: 7 8 5 9 13 22 31 -> 1 swaps is needed
+                        <br> After 4<sup>th</sup> loop: 7 5 8 9 13 22 31 -> 1 swaps is needed
+                        <br> After 4<sup>th</sup> loop: 5 7 8 9 13 22 31 -> 1 swaps is needed
+                        <br>So, total number of swap is 4+3+1+1+1=10.
+                    </p>
+                </div>
+
+                <!--question 3-->
+                <p>
+                    Q3. How can you improve the best case efficiency in bubble sort? (The input is already sorted)<br>
+                    <input type="radio" name="BubbleL3Q3" id="BubbleL3Q3" value="1">A.
+                    <pre>  boolean swapped = true;
+                            for(int j=arr.length-1; j>=0 && swapped; j--)
+                            {
+                                swapped = false;
+                                for(int k=0; k &lt; j; k++)
+                                {
+                                    if(arr[k] > arr[k+1])
+                                    {
+                                        int temp = arr[k];
+                                        arr[k] = arr[k+1];
+                                        arr[k+1] = temp;
+                                        swapped = true;
+                                    }
+                                }
+                            }</pre>
+                    <br>
+                    <input type="radio" name="BubbleL3Q3" id="BubbleL3Q3" value="2">B.
+                    <pre>  boolean swapped = false;
+                            for(int j=arr.length-1; j>=0 && swapped; j--)
+                            {
+                                swapped = true;
+                                for(int k=0; k &lt; j; k++)
+                                {
+                                    if(arr[k] > arr[k+1])
+                                    {
+                                        int temp = arr[k];
+                                        arr[k] = arr[k+1];
+                                        arr[k+1] = temp;
+                                        swapped = false;
+                                    }
+                                }
+                            }</pre>
+                    <br>
+                    <input type="radio" name="BubbleL3Q3" id="BubbleL3Q3" value="3">C.
+                    <pre>
+                            boolean swapped = true;
+                            for(int j=arr.length-1; j>=0 && swapped; j--)
+                            {
+                                swapped = false;
+                                for(int k=0; k &lt; j; k++)
+                                {
+                                    if(arr[k] > arr[k+1])
+                                    {
+                                        int temp = arr[k];
+                                        arr[k] = arr[k+1];
+                                        arr[k+1] = temp;
+                                    }
+                                }
+                            }
+                        </pre>
+                    <br>
+                    <input type="radio" name="BubbleL3Q3" id="BubbleL3Q3" value="4">D.
+                    <pre>
+                            boolean swapped = true;
+                            for(int j=arr.length-1; j>=0 && swapped; j--)
+                            {
+                                for(int k=0; k &lt; j; k++)
+                                {
+                                    if(arr[k] > arr[k+1])
+                                    {
+                                        int temp = arr[k];
+                                        arr[k] = arr[k+1];
+                                        arr[k+1] = temp;
+                                        swapped = true;
+                                    }
+                                }
+                            }
+                        </pre>
+                    <br>
+                    <p class="reference">Reference:
+                        https://www.sanfoundry.com/data-structure-questions-answers-bubble-sort/</p>
+                    <input type="text" name="BubbleL3Q3Ans" id="BubbleL3Q3Ans" readonly>
+                </p>
+                <div id="answerExplanationL3Q3" class="explanation text">
+                    <p>
+                        Explanation: <br>A boolean variable 'swapped' determines whether any swapping has happened in a
+                        particular iteration, if no swapping has occurred, then the given array is sorted and no more
+                        iterations are required.
+                    </p>
+                </div>
+
+                <p>
+                    <input type="button" name="submit" value="Submit" onclick="BubbleSortL3Check()">
+                    <input type="reset" name="reset" value="Reset">
+                </p>
+                <p>
+                    <input type="text" name="BubbleL3ShowScore" readonly>
+                </p>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

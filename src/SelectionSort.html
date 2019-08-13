@@ -1,0 +1,219 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>Selection Sort</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>$(document).ready(function () {
+            $(".navBar").load("component/navBar.html", function () {
+                $("#selectionSortActive").addClass("active");
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="navBar"></div>
+
+    <a id="SelectionSort"></a>
+    <div id="main" class="text">
+        <center>
+            <p id="title">Selection Sort</p>
+            <iframe width="60%" height="50%" src="https://www.youtube.com/embed/xWBP4lzkoyM"></iframe>
+        </center>
+
+        <p id="heading">Content</p>
+        <div class="withBorder contentList">
+            <ul>
+                <li><a href="#Method">Method</a></li>
+                <li><a href="#Algorithm">Algorithm</a></li>
+                <li><a href="#Complexity">Time Complexity</a></li>
+                <li><a href="#Example">Example</a></li>
+            </ul>
+        </div>
+
+        <a id="Method"></a>
+        <p id="heading">Method</p>
+        <div class="withBorder">
+            <p>Ascending Order:
+                <ol>
+                    <li>Prepare a list of unsorted elements A[0...n-1], while n is the number of elements</li>
+                    <li>Start from A[i] where i = 0, compare A[i] to A[i+1...n-1]</li>
+                    <li>If any element inside A[i+1...n-1] is smaller than A[i+1], and it is the smallest element inside
+                        A[i+1...n-1], mark the position of this element as x</li>
+                    <li>Swap the position of A[i] and x</li>
+                    <li>Repeat step 2-4 where i = 1 to n-2</li>
+                    <li>Stop it until the list is sorted</li>
+                </ol>
+            </p>
+            <p>Descending Order:
+                <ol>
+                    <li>Prepare a list of unsorted elements A[0...n-1], while n is the number of elements</li>
+                    <li>Start from A[i] where i = 0, compare A[i] to A[i+1...n-1]</li>
+                    <li>If any element inside A[i+1...n-1] is larger than A[i+1], and it is the largest element inside
+                        A[i+1...n-1], mark the position of this element as x</li>
+                    <li>Swap the position of A[i] and x</li>
+                    <li>Repeat step 2-4 where i = 1 to n-2</li>
+                    <li>Stop it until the list is sorted</li>
+                </ol>
+            </p>
+        </div>
+
+        <a id="Algorithm"></a>
+        <p id="heading">Algorithm</p>
+        <div class="withBorder">
+            <p>Ascending Order:
+                <pre>
+                    for (int i = 0; i &lt; arr.length - 1; i++) {
+                        int smallest = i + 1;
+                        for (int j = i + 1; j &lt;= arr.length - 1; j++) {
+                            if (arr[smallest] >= arr[j]) {
+                                smallest = j;
+                            }
+                        }
+                        if (arr[i] >= arr[smallest]) {
+                            int temp = arr[smallest];
+                            arr[smallest] = arr[i];
+                            arr[i] = temp;
+                        }
+                    }
+                </pre>
+            </p>
+            <p>Descending Order:
+                <pre>
+                    for (int i = 0; i &lt; arr.length - 1; i++) {
+                        int largest = i + 1;
+                        for (int j = i + 1; j &lt;= arr.length - 1; j++) {
+                            if (arr[largest] &lt;= arr[j]) {
+                                largest = j;
+                            }
+                        }
+                        if (arr[i] &lt;= arr[largest]) {
+                            int temp = arr[largest];
+                            arr[largest] = arr[i];
+                            arr[i] = temp;
+                        }
+                    }
+                </pre>
+            </p>
+            <hr>
+            <p>Early-termination & ascending order:
+                <pre>
+                    boolean swap = false;
+                    for (int i = 0; i &lt; arr.length - 1; i++) {
+                        swap = false;
+                        int smallest = i + 1;
+                        for (int j = i + 1; j &lt;= arr.length - 1; j++) {
+                            if (arr[smallest] >= arr[j]) {
+                                smallest = j;
+                                swap = true;
+                            }
+                        }
+                        if (!swap) {
+                            break;
+                        }
+                        if (arr[i] >= arr[smallest]) {
+                            int temp = arr[smallest];
+                            arr[smallest] = arr[i];
+                            arr[i] = temp;
+                        }
+                    }
+                </pre>
+            </p>
+            <p>Early-termination & descending order:
+                <pre>
+                    boolean swap = false;
+                    for (int i = 0; i &lt; arr.length - 1; i++) {
+                        swap = false;
+                        int largest = i + 1;
+                        for (int j = i + 1; j &lt;= arr.length - 1; j++) {
+                            if (arr[largest] &lt;= arr[j]) {
+                                largest = j;
+                                swap = true;
+                            }
+                        }
+                        if (!swap) {
+                            break;
+                        }
+                        if (arr[i] &lt;= arr[largest]) {
+                            int temp = arr[largest];
+                            arr[largest] = arr[i];
+                            arr[i] = temp;
+                        }
+                    }
+                </pre>
+        </div>
+
+        <a id="Complexity"></a>
+        <p id="heading">Time complexity</p>
+        <div class="withBorder">
+            <center>
+                <table class="tableFormat">
+                    <tr class="tableFormat">
+                        <td class="tableFormat">Best Case</td>
+                        <td class="tableFormat">Average Case</td>
+                        <td class="tableFormat">Worst Case</td>
+                    </tr>
+                    <tr class="tableFormat">
+                        <td class="tableFormat">&#937(n<sup>2</sup>)</td>
+                        <td class="tableFormat">&#920(n<sup>2</sup>)</td>
+                        <td class="tableFormat">&#927(n<sup>2</sup>)</td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+
+        <a id="Example"></a>
+        <p id="heading">Example</p>
+        <div class="withBorder">
+            <p>
+                For ascending order:<br /> There are a list of unsorted elements A[0...4]
+                <img src="SelectionSort/SelectionSort1.png" id="sorting"></img>
+                <ol>
+                    <li>Start from A[0], compare A[0] to A[1...4]</li>
+                    <img src="SelectionSort/SelectionSort2.png" id="sorting"></img>
+                    Because A[1] is smaller than A[0], and A[1] is the smallest element inside A[1...4], so we swap the
+                    position of A[0] and A[1]
+                    <li>Compare A[1] to A[2...4]</li>
+                    <img src="SelectionSort/SelectionSort3.png" id="sorting"></img>
+                    A[2] is larger than A[1], and A[2] is the smallest element inside A[2...4], so we swap the position
+                    of A[1] and A[2]
+                    <li> A[2] is smaller than both A[3] and A[4]. So we do nothing in this case</li>
+                    <img src="SelectionSort/SelectionSort4.png" id="sorting"></img>
+                    <li>Compare A[3] to A[4]</li>
+                    <img src="SelectionSort/SelectionSort5.png" id="sorting"></img>
+                    A[3] is larger than A[4]. So we swap the position of A[3] and A[4]
+                    <li>The list is sorted in ascending order</li>
+                    <img src="SelectionSort/SelectionSort6.png" id="sorting"></img>
+                </ol>
+            </p>
+            <hr>
+            <p>
+                For descending order:<br /> There are a list of unsorted elements A[0...4]
+                <img src="SelectionSort/SelectionSortDesc1.png" id="sorting"></img>
+                <ol>
+                    <li>Start from A[0], compare A[0] to A[1...4]</li>
+                    <img src="SelectionSort/SelectionSortDesc2.png" id="sorting"></img>
+                    Because A[4] is larger than A[0], and A[1] is the largest element inside A[1...4], so we swap the
+                    position of A[0] and A[4]
+                    <li>Compare A[1] to A[2...4]</li>
+                    <img src="SelectionSort/SelectionSortDesc3.png" id="sorting"></img>
+                    In this time, A[2] is larger than A[1], and A[2] is the largest element inside A[2...4], so we swap
+                    the position of A[1] and A[2]<br>
+                    <li> Compare A[2] to A[3...4]</li>
+                    <img src="SelectionSort/SelectionSortDesc4.png" id="sorting"></img>
+                    A[4] is larger than A[2], and A[4] is the largest element inside A[3...4], so we swap the position
+                    of A[4] and A[2]
+                    <li>Compare A[3] to A[4]</li>
+                    <img src="SelectionSort/SelectionSortDesc5.png" id="sorting"></img>
+                    A[4] is larger than A[3]. So we swap the position of A[3] and A[4]
+                    <li>After checking the whole list, this list has been sorted in descending order</li>
+                    <img src="SelectionSort/SelectionSortDesc6.png" id="sorting"></img>
+
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+{
+    "user": [
+        {
+            "username": "taiMan1013",
+            "password": "123asdfgs9",
+            "fullName": "Chan Tai Man",
+            "sex": "M",
+            "email": "taiman@gmail.com",
+            "usertype": "user"
+        },
+        {
+            "username": "maryMei2019",
+            "password": "qwef3hyva1",
+            "fullName": "Ng Mei Mei",
+            "sex": "F",
+            "email": "meimei39@gmail.com",
+            "usertype": "user"
+        },
+        {
+            "username": "wilsonHappy1234",
+            "password": "ao03mdjs7ak",
+            "fullName": "Wong On Keung",
+            "sex": "M",
+            "email": "wilson1234@gmail.com",
+            "usertype": "user"
+        },
+        {
+            "username": "SandyNg1010",
+            "password": "agko3456e",
+            "fullName": "Ng Hiu Ying",
+            "sex": "F",
+            "email": "sandyNg@gmail.com",
+            "usertype": "user"
+        },
+        {
+            "username": "JessicaTang2020",
+            "password": "akfine21381dak",
+            "fullName": "Tang Ka Hei",
+            "sex": "F",
+            "email": "jessica_tang_2020@gmail.com",
+            "usertype": "administrator"
+        }
+    ]
+}

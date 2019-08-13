@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+
+    <script type="text/javascript">
+        var userInfo;
+
+        // connect to database
+        function getLoginDatabase() {
+            var xmlhttp;
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    userInfo = JSON.parse(this.responseText);
+                }
+            };
+            xmlhttp.open("GET", "../../user.json", true);
+            xmlhttp.send();
+        }
+
+        function checkUserName(registerForm) {
+            var valid = 0;
+
+            if (registerForm.username.value == "") {
+                alert("Please input a user name.");
+            } else if (registerForm.username.value.length < 6) {
+                alert("Your user name must be longer than 6 characters.");
+            } else {
+                for (var i = 0; i < userInfo.user.length; i++) {
+                    if (userInfo.user[i].username == registerForm.username.value) {
+                        valid = 1;
+                        break;
+                    }
+                }
+                if (valid == 1) {
+                    alert("Sorry, it is a repeat user name. Please try again");
+                } else {
+                    alert("You can use this user name.");
+                }
+            }
+        }
+
+        function checkPassword(registerForm) {
+
+            if (registerForm.password.value.length < 8) {
+                document.getElementById("password_status").innerHTML = "Your password must be longer than 8 characters.";
+            } else if (registerForm.passwordConfirm.value != registerForm.password.value) {
+                document.getElementById("password_status").innerHTML = "Password didn't match!.";
+            } else {
+                document.getElementById("password_status").innerHTML = "";
+            }
+
+        }
+
+        function clearRegisterForm() {
+            document.getElementById("password_status").innerHTML = "";
+        }
+
+        window.addEventListener("load", getLoginDatabase, false);
+    </script>
+</head>
+
+<body>
+    <div id="main">
+        <p id="title">
+            <center>
+                <p id="title">Registration</p>
+            </center>
+        </p>
+        <form name="registerForm" action="./registerHandling.php" method="post" onreset="clearRegisterForm()">
+            <div class="withoutBorder">
+                <label for="username">Username:</label><br>
+                <input type="text" name="username" required>
+                <input type="button" value="Check" onclick="checkUserName(this.form)" />
+            </div>
+            <div class="withoutBorder">
+                <label for="password">Password:</label><br>
+                <input type="password" name="password" onkeyup="checkPassword(this.form)" required>
+            </div>
+            <div class="withoutBorder">
+                <label for="password">Confirm password:</label><br>
+                <input type="password" name="passwordConfirm" onkeyup="checkPassword(this.form)" required>
+            </div>
+            <div id="password_status" class="text"></div>
+            <div class="withoutBorder">
+                <label for="name">Name:</label><br>
+                <input type="text" name="fullName" required>
+            </div>
+            <div class="withoutBorder">
+                <label for="sex">Sex:</label><br>
+                <input type="radio" name="sex" value="M" checked>
+                <label for="sex">M</label>
+                <input type="radio" name="sex" value="F">
+                <label for="sex">F</label>
+            </div>
+            <div class="withoutBorder">
+                <label for="email">Email:</label><br>
+                <input type="email" name="email" required>
+            </div>
+            <div class="withoutBorder">
+                <table width="20%">
+                    <tr align="center">
+                        <td><input type="submit" value="Register" onclick="return confirm('Do you want to submit?');" />
+                        </td>
+                        <td><input type="reset" value="Reset" /></td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+</body>
+
+
+</html>

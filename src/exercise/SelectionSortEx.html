@@ -1,0 +1,345 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
+    <title>Exercise</title>
+    <script type="text/javascript" src="./SelectionSortExHandling.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>$(document).ready(function () {
+            $(".navBar").load("../component/navBarForExercise.html", function () {
+                $("#selectionSortExActive").addClass("active");
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="navBar"></div>
+
+    <a id="SelectionEx"></a>
+    <div id="main" class="text">
+        <center>
+            <p id="title">Selection Sort Exercise</p>
+        </center>
+
+        <p id="heading">Content</p>
+        <div class="withBorder contentList">
+            <ul>
+                <li><a href="#Level1">Level 1</a></li>
+                <li><a href="#Level2">Level 2</a></li>
+                <li><a href="#Level3">Level 3</a></li>
+            </ul>
+        </div>
+
+        <!--level 1-->
+        <a id="Level 1"></a>
+        <p id="heading">Level 1</p>
+        <div class="withBorder">
+            <form name="selectionSortL1" id="selectionSortL1" onreset="clearFormSelectionSortL1()">
+                <!--question 1-->
+                <p>
+                    Q1. Which one is the answer of sorting array A={6, 0, 2, 9, 4} in ascending order after
+                    2<sup>nd</sup> looping? <br>
+                    <input type="radio" name="SelectionL1Q1" id="SelectionL1Q1" value="1">A. 0 2 4 9 6<br>
+                    <input type="radio" name="SelectionL1Q1" id="SelectionL1Q1" value="2">B. 0 2 6 9 4<br>
+                    <input type="radio" name="SelectionL1Q1" id="SelectionL1Q1" value="3">C. 0 6 9 4 2<br>
+                    <input type="radio" name="SelectionL1Q1" id="SelectionL1Q1" value="4">D. 0 6 2 9 4<br>
+                    <input type="text" name="SelectionL1Q1Ans" id="SelectionL1Q1Ans" readonly>
+                </p>
+                <div id="answerExplanationL1Q1" class="explanation text">
+                    <p>
+                        Explanation: <br> element= 6|0 2 9 4<br> After 1<sup>st</sup> loop: 0 6|2 9 4<br> After
+                        2<sup>nd</sup> loop: 0 2 6|9 4<br> After 3<sup>rd</sup> loop: 0 2 4 9|6<br> After 4<sup>th</sup>
+                        loop: 0 2 4 6 9<br>The whole element is sorted.
+                    </p>
+                </div>
+                <!--question 2-->
+                <p>
+                    Q2. How many times of looping is needed to sort number 8 0 7 1 9 3 4 in descending order by
+                    selection sort?<br>
+                    <input type="radio" name="SelectionL1Q2" id="SelectionL1Q2" value="1">A. 3 times<br>
+                    <input type="radio" name="SelectionL1Q2" id="SelectionL1Q2" value="2">B. 4 times<br>
+                    <input type="radio" name="SelectionL1Q2" id="SelectionL1Q2" value="3">C. 5 times<br>
+                    <input type="radio" name="SelectionL1Q2" id="SelectionL1Q2" value="4">D. 6 times<br>
+                    <input type="text" name="SelectionL1Q2Ans" id="SelectionL1Q2Ans" readonly>
+                </p>
+                <div id="answerExplanationL1Q2" class="explanation text">
+                    <p>
+                        Explanation: <br> element= 8|0 7 1 9 3 4<br> After 1<sup>st</sup> loop: 0 8|7 1 9 3 4<br> After
+                        2<sup>nd</sup> loop: 0 1 7|8 9 3 4<br> After 3<sup>rd</sup> loop: 0 1 3 8|9 7 4<br> After
+                        4<sup>th</sup> loop: 0 1 3 4 9|7 8<br> After
+                        5
+                        <sup>th</sup> loop: 0 1 3 4 7 9|8<br> After 6<sup>th</sup> loop: 0 1 3 4 7 8 9<br> The whole
+                        element is sorted. Early termination condition will work after 6<sup>th</sup> loop. </p>
+                </div>
+                <!--question 3-->
+                <p>
+                    Q3. Which answer(s) about selection Sort is correct?<br>
+                    <input type="checkbox" name="SelectionL1Q3" id="SelectionL1Q31" value="1">A. The performance of
+                    selection sort depends on the order of list element.<br>
+                    <input type="checkbox" name="SelectionL1Q3" id="SelectionL1Q32" value="2">B. Early-termination will
+                    occur when there are no swapping in the whole list<br>
+                    <input type="checkbox" name="SelectionL1Q3" id="SelectionL1Q33" value="3">C. Comparison will start
+                    at the second element<br>
+                    <input type="checkbox" name="SelectionL1Q3" id="SelectionL1Q34" value="4">D. The number of loops is
+                    needed to sort a list is depends on the list size<br>
+                    <input type="text" name="SelectionL1Q3Ans" id="SelectionL1Q3Ans" readonly>
+                </p>
+                <div id="answerExplanationL1Q3" class="explanation text">
+                    <p>
+                        For answer A, the worst case, average case and best case time complexity of selection sort are
+                        &#937(n<sup>2</sup>), &#920(n<sup>2</sup>) and &#927(n<sup>2</sup>). It shows the performance of
+                        selection sort is not related to the
+                        order of list element. So, A is incorrect.
+                    </p>
+                    <p>
+                        For answer D, number of loops is needed to sort a list is related to element size.<br> Each list
+                        needs at most n-1 times of looping to sort the list. For example, to sort 1 2 6 4 5 3 in
+                        ascending order needs 3 loops.<br> Sorting
+                        1 6 3 9 8 in descending order needs 4 loops.<br> So, D is correct.
+                    </p>
+                </div>
+                <!--question 4-->
+                <p>
+                    Q4. How many times of looping is needed to sort number 4 2 1 3 6 in ascending order by selection
+                    sort?<br>
+                    <input type="radio" name="SelectionL1Q4" id="SelectionL1Q4" value="1">A. 2 times<br>
+                    <input type="radio" name="SelectionL1Q4" id="SelectionL1Q4" value="2">B. 3 times<br>
+                    <input type="radio" name="SelectionL1Q4" id="SelectionL1Q4" value="3">C. 4 times<br>
+                    <input type="radio" name="SelectionL1Q4" id="SelectionL1Q4" value="4">D. 5 times<br>
+                    <input type="text" name="SelectionL1Q4Ans" id="SelectionL1Q4Ans" readonly>
+                </p>
+                <div id="answerExplanationL1Q4" class="explanation text">
+                    <p>
+                        Explanation: <br> element= 4|2 1 3 6<br> After 1<sup>st</sup> loop: 1 2|4 3 6<br> After
+                        2<sup>nd</sup> loop: 1 2 4|3 6<br> After 3<sup>rd</sup> loop: 1 2 3 4|6<br> The whole element is
+                        sorted. Early termination condition will work
+                        after 3<sup>rd</sup> loop.
+
+                    </p>
+                </div>
+                <!--question 5-->
+                <p>
+                    Q5. What is the average-case time complexity of selection sort?<br>
+                    <input type="radio" name="SelectionL1Q5" id="SelectionL1Q5" value="1">A. &#927(n log n)<br>
+                    <input type="radio" name="SelectionL1Q5" id="SelectionL1Q5" value="2">B. &#927(2<sup>n</sup>)<br>
+                    <input type="radio" name="SelectionL1Q5" id="SelectionL1Q5" value="3">C. &#927(n<sup>2</sup>)<br>
+                    <input type="radio" name="SelectionL1Q5" id="SelectionL1Q5" value="4">D. &#927(n)<br>
+                    <input type="text" name="SelectionL1Q5Ans" id="SelectionL1Q5Ans" readonly>
+                </p>
+                <p>
+                    <input type="button" name="submit" value="Submit" onclick="SelectionSortCheckL1()">
+                    <input type="reset" name="reset" value="Reset">
+                </p>
+                <p>
+                    <input type="text" name="SelectionL1ShowScore" readonly>
+                </p>
+            </form>
+        </div>
+
+        <!--level 2-->
+        <a id="Level2"></a>
+        <p id="heading">Level 2</p>
+        <div class="withBorder">
+            <form name="selectionSortL2" id="selectionSortL2" onreset="clearFormSelectionSortL2()">
+                <!--question 1-->
+                <p>
+                    Q1. How many comparisons are needed to sort an array of length 3 if a straight selection sort is
+                    used and array is already in the opposite order? <br>
+                    <br> Answer: <input type="text" name="SelectionL2Q1" id="SelectionL2Q1">
+                    <br>
+                    <br>
+                    <input type="text" name="SelectionL2Q1Ans" id="SelectionL2Q1Ans" readonly>
+                </p>
+                <p class="reference">Reference: https://www.geeksforgeeks.org/quiz-selectionsort-gq/</p>
+                <div id="answerExplanationL2Q1" class="explanation text">
+                    <p>
+                        Explanation: <br> element= 9|3 1<br> After 1<sup>st</sup> loop: 1 3|9 -> 2 comparison is
+                        needed<br> After 2<sup>nd</sup> loop: 1 3 9 -> 1 comparison is needed
+                        <br>So, total number of comparison is 2+1=3.
+                    </p>
+                </div>
+                <!--question 2-->
+                <p>
+                    Q2. What is the disadvantage of selection sort?<br>
+                    <input type="radio" name="SelectionL2Q2" id="SelectionL2Q2" value="1">A. It can be used for small
+                    keys<br>
+                    <input type="radio" name="SelectionL2Q2" id="SelectionL2Q2" value="2">B. It requires auxiliary
+                    memory<br>
+                    <input type="radio" name="SelectionL2Q2" id="SelectionL2Q2" value="3">C. It is not scalable<br>
+                    <input type="radio" name="SelectionL2Q2" id="SelectionL2Q2" value="4">D. None of the mentioned<br>
+                    <input type="text" name="SelectionL2Q2Ans" id="SelectionL2Q2Ans" readonly>
+                </p>
+                <p class="reference">Reference:
+                    https://www.sanfoundry.com/data-structure-questions-answers-selection-sort/</p>
+                <div id="answerExplanationL2Q2" class="explanation text">
+                    <p>
+                        Explanation: <br> As the input size increases, the performance of selection sort decreases.
+                    </p>
+                </div>
+                <!--question 3-->
+                <p>
+                    Q3. Suppose you have the following list of numbers to sort: [11, 7, 12, 14, 19, 1, 6, 18, 8, 20].
+                    Which list represents the partially sorted list after three complete passes of selection sort? <br>
+                    <input type="radio" name="SelectionL2Q3" id="SelectionL2Q3" value="1">A. 1 7 12 14 19 11 6 18 8
+                    20<br>
+                    <input type="radio" name="SelectionL2Q3" id="SelectionL2Q3" value="2">B. 1 6 12 14 19 11 7 18 8
+                    20<br>
+                    <input type="radio" name="SelectionL2Q3" id="SelectionL2Q3" value="3">C. 7 11 1 6 12 14 19 18 28
+                    8<br>
+                    <input type="radio" name="SelectionL2Q3" id="SelectionL2Q3" value="4">D. 1 6 7 14 19 11 12 18 8
+                    20<br>
+                    <input type="text" name="SelectionL2Q3Ans" id="SelectionL2Q3Ans" readonly>
+                </p>
+                <p class="reference">Reference:
+                    http://interactivepython.org/runestone/static/pythonds/SortSearch/TheSelectionSort.html</p>
+                <div id="answerExplanationL2Q3" class="explanation text">
+                    <p>
+                        Explanation: <br>Element = 11|7 12 14 19 1 6 18 8 20 <br> After 1<sup>st</sup> loop: 1 7|12 14
+                        19 11 6 18 8 20<br> After 2<sup>nd</sup> loop: 1 6 12|14 19 11 7 18 8 20<br> After
+                        3<sup>rd</sup> loop: 1 6 7 14|19 11 12 18 8 20<br>
+
+                    </p>
+                </div>
+                <p>
+                    <input type="button" name="submit" value="Submit" onclick="SelectionSortCheckL2()">
+                    <input type="reset" name="reset" value="Reset">
+                </p>
+                <p>
+                    <input type="text" name="SelectionL2ShowScore" readonly>
+                </p>
+            </form>
+        </div>
+
+        <!--level 3-->
+        <a id="Level3"></a>
+        <p id="heading">Level 3</p>
+        <div class="withBorder">
+            <form name="selectionSortL3" id="selectionSortL3" onreset="clearFormSelectionSortL3()">
+                <!--question 1-->
+                <p>
+                    Q1. Select the appropriate code that performs selection sort.<br>
+                    <input type="radio" name="SelectionL3Q1" id="SelectionL3Q1" value="1">A.
+                    <pre>        int min;
+                            for(int j=0; j &lt; arr.length-1; j++)
+                            {
+                                min = j;
+                                for(int k=j+1; k &lt;=arr.length; k++)
+                                {
+                                    if(arr[k] &lt; arr[min])
+                                        min = k;
+                                }
+                                int temp = arr[min];
+                                arr[min] = arr[j];
+                                arr[j] = temp;
+                            }
+                        </pre><br>
+                    <input type="radio" name="SelectionL3Q1" id="SelectionL3Q1" value="2">B.
+                    <pre>int min;
+                            for(int j=0; j&lt;arr.length-1; j++)
+                            {
+                                min = j;
+                                for(int k=j+1; k &lt;=arr.length-1; k++)
+                                {
+                                    if(arr[k] &lt; arr[min])
+                                        min = k;
+                                }
+                                int temp = arr[min];
+                                arr[min] = arr[j];
+                                arr[j] = temp;
+                               }</pre><br>
+                    <input type="radio" name="SelectionL3Q1" id="SelectionL3Q1" value="3">C.
+                    <pre> int min;
+                            for(int j=0; j&lt;arr.length-1; j++)
+                            {
+                                min = j;
+                                for(int k=j+1; k&lt;=arr.length; k++)
+                                {
+                                    if(arr[k] > arr[min])
+                                        min = k;
+                                }
+                                int temp = arr[min];
+                                arr[min] = arr[j];
+                                arr[j] = temp;
+                            }</pre><br>
+                    <input type="radio" name="SelectionL3Q1" id="SelectionL3Q1" value="4">D.
+                    <pre> int min;
+                            for(int j=0; j&lt;arr.length-1; j++)
+                            {
+                                min = j;
+                                for(int k=j+1; k&lt;=arr.length-1; k++)
+                                {
+                                    if(arr[k] > arr[min])
+                                        min = k;
+                                }
+                                int temp = arr[min];
+                                arr[min] = arr[j];
+                                arr[j] = temp;
+                            }</pre><br>
+                    <input type="text" name="SelectionL3Q1Ans" id="SelectionL3Q1Ans" readonly>
+                </p>
+                <p class="reference">Reference:
+                    https://www.sanfoundry.com/data-structure-questions-answers-selection-sort/</p>
+                <div id="answerExplanationL3Q1" class="explanation text">
+                    <p>
+                        Explanation: <br> Starting with the first element as 'min' element, selection sort loops through
+                        the list to select the least element which is then swapped with the 'min' element.
+                    </p>
+                </div>
+                <!--question 2-->
+                <p>
+                    Q2. In the following scenarios, when will you use selection sort?<br>
+                    <input type="radio" name="SelectionL3Q2" id="SelectionL3Q2" value="1">A. A large file has to be
+                    sorted<br>
+                    <input type="radio" name="SelectionL3Q2" id="SelectionL3Q2" value="2">B. Large values need to be
+                    sorted with small keys<br>
+                    <input type="radio" name="SelectionL3Q2" id="SelectionL3Q2" value="3">C. The input is already
+                    sorted<br>
+                    <input type="radio" name="SelectionL3Q2" id="SelectionL3Q2" value="4">D. Small values need to be
+                    sorted with large keys<br>
+                    <input type="text" name="SelectionL3Q2Ans" id="SelectionL3Q2Ans" readonly>
+                </p>
+                <p class="reference">Reference:
+                    https://www.sanfoundry.com/data-structure-questions-answers-selection-sort/</p>
+                <div id="answerExplanationL3Q2" class="explanation text">
+                    <p>
+                        Explanation: <br> Selection is based on keys, hence a file with large values and small keys can
+                        be efficiently sorted with selection sort.
+                    </p>
+                </div>
+                <!--question 3-->
+                <p>
+                    Q3. The given array is arr = {3,4,5,2,1}. The number of iterations in selection sort respectively
+                    is?<br>
+                    <br> Answer: <input type="text" name="SelectionL3Q3" id="SelectionL3Q3">
+                    <br>
+                    <br>
+                    <input type="text" name="SelectionL3Q3Ans" id="SelectionL3Q3Ans" readonly>
+                </p>
+                <p class="reference">Reference:
+                    https://www.sanfoundry.com/data-structure-questions-answers-selection-sort/</p>
+                <div id="answerExplanationL3Q3" class="explanation text">
+                    <p>
+                        Explanation: <br> element= 3|4 5 2 1<br> After 1<sup>st</sup> loop: 1 4|5 2 3<br> After
+                        2<sup>nd</sup> loop: 1 2 5|4 3<br> After 3<sup>rd</sup> loop: 1 2 3 4 5<br>The whole element is
+                        sorted.
+                    </p>
+
+                </div>
+
+                <p>
+                    <input type="button" name="submit" value="Submit" onclick="SelectionSortCheckL3()">
+                    <input type="reset" name="reset" value="Reset">
+                </p>
+                <p>
+                    <input type="text" name="SelectionL3ShowScore" readonly>
+                </p>
+            </form>
+        </div>
+
+    </div>
+</body>
+
+</html>
