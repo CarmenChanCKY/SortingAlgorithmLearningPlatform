@@ -1,5 +1,5 @@
 create database sortingAlgorithmDatabase;
-use comp3421;
+use sortingAlgorithmDatabase;
 create table exerciseRecord(username varchar(45), type varchar(20), level int(5), correct int(5), incorrect int(5));
 SET SQL_SAFE_UPDATES = 0;
 
